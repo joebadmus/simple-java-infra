@@ -2,11 +2,10 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-// 2 Public Subnets
+// 3 Public Subnets
 resource "aws_subnet" "public_subnets" {
   vpc_id                  = aws_vpc.default.id
   cidr_block              = "10.0.${count.index * 2 + 1}.0/24"
-  // availability_zone       = element(var.availability_zones, count.index)
   availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
   map_public_ip_on_launch = true
 

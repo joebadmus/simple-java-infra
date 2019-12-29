@@ -20,12 +20,6 @@ variable "availability_zones" {
   default     = ["eu-west-2a", "eu-west-2b"]
 }
 
-variable "public_key" {
-  description = "SSH public key"
-  default = "/home/joe/keys/demo.pem"
-  # default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIyId1RsxTtB8x0gUkt5wqqAX1h/wY2HALVPjfnZYD52OHe5bNcMMZt/fKZ/fwONiwNDh+Dj8vnjSVkeP6sWy2SQFlUQU3Xne1VGVwr7SDrsUALdjUAJNw8gGne1dYsp3TXADSvyZ+OABPNRZJjWJK1VClCeLBVm83sbomG5ERovqRiOoFSOq0uRqivfCv08FyptZLEo8KDYMwxxO35tIm+7xAV6AtMpFhOHvkfruVzW4gwtuvHkKh8QW9smiJ0PIkP5EeIA8loP6oZyZ2gBq5lB8c5gVtkAdx55PqakHzKtG7B5YIH6IZTvOnXVAibjoDmFJ4W2oGV4ibZSytHCRv"
-}
-
 // variable "hosted_zone_id" {
 //   description = "Route53 zone id"
 // }
