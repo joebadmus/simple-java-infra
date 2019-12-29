@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     encrypt = "true"
     bucket  = "joebadmus-dev-s3-backend"
-    key     = "infra/network/terraform.tfstate"
+    key     = "infra/webservers/terraform.tfstate"
     region  = "eu-west-2"
   }
 }

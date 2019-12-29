@@ -1,11 +1,11 @@
 // VPC
-resource "aws_vpc" "default" {
-  cidr_block           = var.cidr_block
-  enable_dns_hostnames = true
+# resource "aws_vpc" "default" {
+#   cidr_block           = var.cidr_block
+#   enable_dns_hostnames = true
 
-  tags = {
-    Name   = var.vpc_name
-    Author = var.author
-    Tool   = var.tool
-  }
-}
+#   tags = {
+#     Name   = var.vpc_name
+#     Author = var.author
+#     Tool   = var.tool
+#   }
+# }
