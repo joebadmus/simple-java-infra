@@ -10,10 +10,6 @@ variable "availability_zones" {
   default     = ["eu-west-2a", "eu-west-2b"]
 }
 
-variable "public_key" {
-  description = "SSH public key"
-  default = "/home/joe/keys/demo.pem"
-
 
 // Default variables
 variable "instance_type" {
