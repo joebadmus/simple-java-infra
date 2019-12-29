@@ -1,20 +1,26 @@
 output "VPC_ID" {
-  value = aws_vpc.default.id
+  value = "${data.terraform_remote_state.config.outputs.VPC_ID}"
 }
 
-# output "webserver_ip" {
-#   value = aws_subnet.public_subnets.*.id
-# }
+output "webserver_ip" {
+  value = "${data.terraform_remote_state.config.outputs.Public_Subnets}"
+}
 
 
-# output "Jumpbox_SG_ID" {
-#   value = "${aws_security_group.jumpbox-sg.id}"
-# }
+output "GreenWebServer_public" {
+  value = "${aws_instance.green_webserver.public_ip}"
+}
 
-# output "GreenJumpbox_public" {
-#   value = "${aws_instance.green_jumpbox.public_ip}"
-# }
+output "GreenWebServer_endpoint" {
+    value = "http://${aws_instance.green_webserver.public_ip}  To connect ssh -i key ec2-user@${aws_instance.green_webserver.public_ip}"
+}
 
-# output "BlueJumpbox_public" {
-#   value = "${aws_instance.blue_jumpbox.public_ip}"
-# }
+
+
+output "BlueWebServer_public" {
+  value = "${aws_instance.blue_webserver.public_ip}"
+}
+
+output "BlueWebServer_endpoint" {
+    value = "http://${aws_instance.blue_webserver.public_ip}  To connect ssh -i key ec2-user@${aws_instance.blue_webserver.public_ip}"
+}

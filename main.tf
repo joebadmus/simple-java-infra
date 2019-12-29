@@ -7,7 +7,7 @@ resource "aws_instance" "green_webserver" {
   key_name                    = "${var.key_name}"
   instance_type               = "${var.instance_type}"
   user_data                   = "${data.template_file.webserver_data.rendered}"
-  subnet_id                   = "${element(aws_subnet.public_subnets.*.id, 0)}"
+  subnet_id                   = "${element(data.terraform_remote_state.config.outputs.Public_Subnets, 0)}"
   vpc_security_group_ids      = ["${aws_security_group.webserver-sg.id}"]
   associate_public_ip_address = true
 
@@ -20,7 +20,8 @@ resource "aws_instance" "blue_webserver" {
   ami                         = "${var.ami}"
   key_name                    = "${var.key_name}"
   instance_type               = "${var.instance_type}"
-  subnet_id                   = "${element(aws_subnet.public_subnets.*.id, 1)}"
+  user_data                   = "${data.template_file.webserver_data.rendered}"
+  subnet_id                   = "${element(data.terraform_remote_state.config.outputs.Public_Subnets, 1)}"
   vpc_security_group_ids      = ["${aws_security_group.webserver-sg.id}"]
   associate_public_ip_address = true
 
@@ -31,7 +32,7 @@ resource "aws_instance" "blue_webserver" {
 
 resource "aws_security_group" "webserver-sg" {
   name   = "webserver-security-group"
-  vpc_id = "${aws_vpc.default.id}"
+  vpc_id = "${data.terraform_remote_state.config.outputs.VPC_ID}"
 
   ingress {
     protocol    = "tcp"
