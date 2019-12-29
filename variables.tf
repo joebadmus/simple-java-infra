@@ -42,7 +42,7 @@ variable "cidr_block" {
 }
 
 variable "public_count" {
-  default     = 2
+  default     = 3
   description = "Number of public subnets"
 }
 
