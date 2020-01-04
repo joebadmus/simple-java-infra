@@ -1,7 +1,3 @@
-data "template_file" "jenkins_data" {
-  template = "${file("template/redisclient.tpl")}"
-}
-
 resource "aws_instance" "green_jumpbox" {
   ami                         = "${var.ami}"
   key_name                    = "${aws_key_pair.jumpbox_key.key_name}"
